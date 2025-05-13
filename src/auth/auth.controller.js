@@ -12,10 +12,9 @@ export const register = async(req, res)=>{
         let data = req.body
         let user = new User(data)
         user.password = await encrypt(user.password)
-        user.role = 'CLIENT'
-        user.profilePicture = req.file?.filename ?? null 
+        user.role = 'USER'
         await user.save()
-        return res.send({message: `User registration correctly done, now you can login: ${user.username}`})
+        return res.send({success: true, message: `User registration correctly done, now you can login: ${user.username}`})
     }catch(e){
         console.error(e)
         return res.status(500).send({message: 'General error with user registration', err: e})
@@ -51,8 +50,8 @@ export const login = async(req, res)=>{
             )
         }
         return res.status(400).send({message: 'Invalid credentials'})
-    }catch(err){
-        console.error(err)
-        return res.status(500).send({message: 'General error with login function', err})
+    }catch(e){
+        console.error(e)
+        return res.status(500).send({message: 'General error with login function', e})
     }
 }

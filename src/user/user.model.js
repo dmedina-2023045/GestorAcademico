@@ -33,6 +33,12 @@ const userSchema = Schema(
             type: String,
             minLength: [8, `Can't be overcome 16 characters`],
             maxLength: [15, 'Phone must be 15 numbers'],
+        },
+        role: {
+            type: String,
+            required: [true, 'Role is required'],
+            uppercase: true,
+            enum: ['ADMIN', 'USER']
         }
     }
 )

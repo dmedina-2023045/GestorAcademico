@@ -5,19 +5,26 @@ const publicationSchema = new Schema(
         title:{
             type: String,
             required: [true, 'Para realizar una publicacion es requerido el titulo'],
-            maxLength: [64, 'El titulo no puede sobrepasar los 64 caracteres']
+            maxLength: [64, 'El titulo no puede sobrepasar los 32 caracteres']
         },
         content:{
-
+            type: String,
+            required: [true, 'No puedes hacer una publicacion en blanco'],
+            maxLength: [1000, 'No puedes pasar los 1000 caracteres en una publicacion']
         },
         comment:{
-
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
         },
         course:{
-
+            type: Schema.Types.ObjectId,
+            ref: 'Course',
+            required: [true, 'No puedes hacer una publicacion sin asignarle el curso']
         },
         user:{
-
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: [true, 'No puedes postear si no tienes sesion iniciada']
         }
 
     }

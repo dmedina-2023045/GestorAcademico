@@ -11,7 +11,6 @@ const commetSchema = new Schema(
             required: [true, 'No puedes comentar algo vacio!'],
             maxLength: [1000, 'Limite de caracteres : 1000']
         }
-
     }
 )
 
