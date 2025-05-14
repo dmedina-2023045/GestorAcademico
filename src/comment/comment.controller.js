@@ -1,5 +1,5 @@
-import Comment from "./comment.model";
-import Publication from "../publication/publication.model";
+import Comment from "./comment.model.js";
+import Publication from "../publication/publication.model.js";
 
 export const test = (req, res)=>{
     console.log('Test is running')

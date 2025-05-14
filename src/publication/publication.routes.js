@@ -6,7 +6,7 @@ const api = Router()
 
 api.get('/testp', test)
 api.post('/addPublication', validateJwt, addPublication)
-api.get('/getPublication',  getPublication)
+api.get('/getPublication', getPublication)
 api.put('/updatePublication/:id', validateJwt, updatePublication)
 api.delete('/deletePublication/:id', validateJwt, deletePublication)
 

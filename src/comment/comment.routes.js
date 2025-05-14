@@ -5,7 +5,7 @@ import { test, addComment, updateComment, deleteCommnet} from './comment.control
 const api = Router()
 
 api.get('/testco', test)
-api.post('/addCommentary/:pId', validateJwt, addComment)
+api.post('/addComment/:id', validateJwt, addComment)
 api.put('/updateComment/:id', validateJwt, updateComment)
 api.delete('/deleteComment/:id', validateJwt, deleteCommnet)
 

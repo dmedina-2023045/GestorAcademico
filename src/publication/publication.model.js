@@ -12,10 +12,11 @@ const publicationSchema = new Schema(
             required: [true, 'No puedes hacer una publicacion en blanco'],
             maxLength: [1000, 'No puedes pasar los 1000 caracteres en una publicacion']
         },
-        comment:{
+        comment:[{
             type: Schema.Types.ObjectId,
-            ref: 'Comment'
-        },
+            ref: 'Comment',
+            required: false
+        }],
         course:{
             type: Schema.Types.ObjectId,
             ref: 'Course',

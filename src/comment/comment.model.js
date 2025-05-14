@@ -4,7 +4,13 @@ const commetSchema = new Schema(
     {
         user: {
             type: Schema.Types.ObjectId,
+            ref: 'User',
             required:[true, 'Para hacer un comentario necesitas estar con sesion iniciada']
+        },
+        publication:{
+            type: Schema.Types.ObjectId,
+            ref: 'Publication',
+            required: [true, 'Para hacer un comentario necesitas saber a que publicacion vas a comentar']
         },
         text:{
             type: String,
@@ -14,4 +20,4 @@ const commetSchema = new Schema(
     }
 )
 
-export default model('Comment', commentSchema)
+export default model('Comment', commetSchema)

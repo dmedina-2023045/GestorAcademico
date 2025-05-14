@@ -2,6 +2,11 @@ import User from './user.model.js'
 import argon from 'argon2'
 import { encrypt } from '../../utils/encrypt.js'
 
+export const test = (req, res)=>{
+    console.log('Test is running user')
+    res.send({message: 'Test is running user'})
+}
+
 const addAdmin = async () => {
     try {
         const defaultAdmin = await User.findOne({role: 'ADMIN'})
