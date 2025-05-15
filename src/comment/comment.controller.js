@@ -7,73 +7,62 @@ export const test = (req, res)=>{
 }
 
 export const addComment = async (req, res) => {
-    const {pId} = req.params 
-    const data = req.body 
-    const id = req.user.uid   
-    try{
-        const publication = await Publication.findById(pId) 
-        const comment = new Comment({...data, pId, id}) 
-        if (!publication)return res.status(404).send(
+    try {
+        const {id} = req.params 
+        const data = req.body
+        const publication = await Publication.findById(id) 
+        if (!publication) return res.status(404).send(
             {
                 success: false,
                 message: 'Publication not found'
             }
         ) 
-        await Publication.findByIdAndUpdate(pId, {$push: { comments: Comment._id} }, {new: true}) 
+        const comment = new Comment(data) 
         await comment.save() 
-        return res.status(201)({success: true,message: 'Your comment is posted!'})
-    }catch (e) {
+        if (!publication.comment) publication.comment = [] 
+        publication.comment.push(comment._id) 
+        await publication.save() 
+        return res.status(200).send({success: true, message: 'Comment saved successfully', commentId: comment._id}) 
+    } catch (e) {
         console.error(e) 
-        return res.status(500)({message: 'General error'})
+        return res.status(500).send({message: 'Internal server error', e}) 
     }
-}
+} 
 
-export const updateComment = async(req, res) => {
-    try{
-        let {id} = req.params
-        let data = req.body
-        const uid = req.user.uid   
-        const comment = await Comment.findById(id) 
-        if (!comment)return res.status(404).send(
-                {
-                    success: false,
-                    message: 'Comentario no encontrado'
-                }
-            )
-        if(comment.user.toString() !== uid)return res.status(404).send(
+export const updateComment = async (req, res) => {
+    try {
+        const {id} = req.params 
+        const data = req.body
+        const comment = await Comment.findById(id)
+        
+        if (!comment) return res.status(404).send(
             {
                 success: false,
-                message: `No se puede editar| Credenciales invalidas`
+                message: 'Coment not found'
             }
-        )
+        ) 
         let updatedComment = await Comment.findByIdAndUpdate(id, data, {new: true})
         if(!updatedComment) return res.status(404).send(
             {
                 success: false,
-                message: 'Comentario no actualizado'
+                message: 'Comment not found, not updated'
             }
         )
-        return res.send({success: true, message: 'Comment updated'})
-    }catch(e){
-        console.error(e)
-        return res.status(500).send({success: false, message: 'General error', e})
+        await comment.save() 
+        return res.status(200).send({success: true, message: 'Comment saved successfully', commentId: comment._id}) 
+    } catch (e) {
+        console.error(e) 
+        return res.status(500).send({message: 'Internal server error', e}) 
     }
-}
-
+} 
 export const deleteCommnet = async (req, res) => {
     try{
         let {id} = req.params
-        const cId = req.user.uid   
         const comment = await Comment.findById(id)
         if(!comment)return res.status(404).send(
-                {
-                    success: false,
-                    message: 'Comment not found'
-                }
-            )
-        if(comment.user.toString() !== cId)return res.status(404).send({
+            {
                 success: false,
-                message: `The comment doesn't belong to you`
+                message: 'Comment not found'
             }
         )
         let deletedComment = await Comment.findByIdAndDelete(id)

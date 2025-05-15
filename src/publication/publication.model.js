@@ -22,12 +22,10 @@ const publicationSchema = new Schema(
             ref: 'Course',
             required: [true, 'No puedes hacer una publicacion sin asignarle el curso']
         },
-        user:{
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-            required: [true, 'No puedes postear si no tienes sesion iniciada']
+        date:{
+            type:Date,
+            default:Date.now()
         }
-
     }
 )
 

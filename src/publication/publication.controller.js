@@ -9,7 +9,6 @@ export const test = (req, res)=>{
 export const addPublication = async(req , res) => {
     try{
         const data = req.body
-        const id = req.user.uid
         let cId = await Course.findById(data.course)
         if(!cId)return res.status(404).send(
                 {
@@ -18,7 +17,6 @@ export const addPublication = async(req , res) => {
                 }
             )
         let publi = new Publication(data)
-        publi.user = id
         await publi.save()
         return res.status(201).send({success: true, message: 'Publication created successfully'})
         }catch(e){
@@ -30,7 +28,7 @@ export const addPublication = async(req , res) => {
 export const getPublication = async(req ,res)=>{
     try{
         const {limit = 20, skip = 0 } = req.query
-        const post = await Publication.find().skip(skip).limit(limit).populate('user', ['name','surname']).populate('course','name')
+        const post = await Publication.find().skip(skip).limit(limit).populate('course','name').populate('comment','text')
         if(post.length == 0) return res.status(404).send(
             {
                 success: false, message:'Publications not found'

@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "378f776b-fe55-4f57-b01a-7aa3ef66dcaa",
+		"name": "Gestor Academico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956971"
+	},
+	"item": [
+		{
+			"name": "Commet",
+			"item": [
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:2636/testco",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"testco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "publication",
+									"value": "682573dc8f8adcd89b779ede",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "text",
+									"value": "Comentario de prueba 2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2636/addComment/6825f6db9fb87faca8ee878e",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"addComment",
+								"6825f6db9fb87faca8ee878e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateComment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "Este es la prueba de el update",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2636/updateComment/6825f6eb9fb87faca8ee8793",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updateComment",
+								"6825f6eb9fb87faca8ee8793"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:2636/deleteComment/6825f6eb9fb87faca8ee8793",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"deleteComment",
+								"6825f6eb9fb87faca8ee8793"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publication",
+			"item": [
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:2636/testp",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"testp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPublication",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:2636/getPublication",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getPublication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPublication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Test1",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Hola prueba no1",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "course",
+									"value": "6825fea2575f1102751ff7e5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2636/addPublication",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"addPublication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePublication",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "hola123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2636/updatePublication/6825f64339712445412e3f8c",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updatePublication",
+								"6825f64339712445412e3f8c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePublication",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:2636/deletePublication/6825f64339712445412e3f8c",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"deletePublication",
+								"6825f64339712445412e3f8c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:2636/testc",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"testc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCourse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Taller lll",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2636/addCourse",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"addCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCourse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:2636/getCourse/",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getCourse",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCourseById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:2636/getCourseById/6824b9fa1f9a746f7ca9fcd2",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"getCourseById",
+								"6824b9fa1f9a746f7ca9fcd2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCourse",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "Taller ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2636/updateCourse/6824b9fa1f9a746f7ca9fcd2",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"updateCourse",
+								"6824b9fa1f9a746f7ca9fcd2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCourse",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:2636/deleteCourse/6824b9fa1f9a746f7ca9fcd2",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"deleteCourse",
+								"6824b9fa1f9a746f7ca9fcd2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
