@@ -10,7 +10,7 @@ export const addPublication = async(req , res) => {
     try{
         const data = req.body
         const id = req.user.uid
-        let cId = await Course.findById(data.categorie)
+        let cId = await Course.findById(data.course)
         if(!cId)return res.status(404).send(
                 {
                     success: false,
@@ -30,7 +30,7 @@ export const addPublication = async(req , res) => {
 export const getPublication = async(req ,res)=>{
     try{
         const {limit = 20, skip = 0 } = req.query
-        const post = await Publication.find().skip(skip).limit(limit).populate('user', ['name','surname']).populate('Course','name')
+        const post = await Publication.find().skip(skip).limit(limit).populate('user', ['name','surname']).populate('course','name')
         if(post.length == 0) return res.status(404).send(
             {
                 success: false, message:'Publications not found'

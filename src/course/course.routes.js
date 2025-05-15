@@ -7,7 +7,7 @@ const api = Router()
 api.get('/testc', test)
 api.post('/addCourse',[validateJwt, isAdmin], addCourse)
 api.get('/getCourse', getCourse)
-api.get('/getCourse/:id', getCourseById)
+api.get('/getCourseById/:id', getCourseById)
 api.put('/updateCourse/:id', [validateJwt, isAdmin], updateCourse)
 api.delete('/deleteCourse/:id', [validateJwt, isAdmin], deleteCourse)
 
