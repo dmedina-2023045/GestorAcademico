@@ -17,9 +17,9 @@ const configs = (app)=>{
 }
 
 const routes = (app) =>{
-    app.use(commentRoutes)
+    app.use('/comment', commentRoutes)
     app.use(courseRoutes)
-    app.use(publicationRoutes)
+    app.use('/post',publicationRoutes)
 }
 
 export const initServer = ()=>{
