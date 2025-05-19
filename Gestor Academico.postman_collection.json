@@ -139,12 +139,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:2636/getPublication",
+							"raw": "localhost:2636/post/getPublication",
 							"host": [
 								"localhost"
 							],
 							"port": "2636",
 							"path": [
+								"post",
 								"getPublication"
 							]
 						}
@@ -177,18 +178,19 @@
 								},
 								{
 									"key": "course",
-									"value": "6825fea2575f1102751ff7e5",
+									"value": "682a107cf40c40867d0f5a8c",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:2636/addPublication",
+							"raw": "localhost:2636/post/addPublication",
 							"host": [
 								"localhost"
 							],
 							"port": "2636",
 							"path": [
+								"post",
 								"addPublication"
 							]
 						}
@@ -276,12 +278,12 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "Taller lll",
+									"value": "Taller",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Test ",
+									"value": "Test",
 									"type": "text"
 								}
 							]
@@ -360,12 +362,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:2636/updateCourse/6824b9fa1f9a746f7ca9fcd2",
+							"raw": "localhost:2636/course/updateCourse/6824b9fa1f9a746f7ca9fcd2",
 							"host": [
 								"localhost"
 							],
 							"port": "2636",
 							"path": [
+								"course",
 								"updateCourse",
 								"6824b9fa1f9a746f7ca9fcd2"
 							]
@@ -379,12 +382,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:2636/deleteCourse/6824b9fa1f9a746f7ca9fcd2",
+							"raw": "localhost:2636/course/deleteCourse/6824b9fa1f9a746f7ca9fcd2",
 							"host": [
 								"localhost"
 							],
 							"port": "2636",
 							"path": [
+								"course",
 								"deleteCourse",
 								"6824b9fa1f9a746f7ca9fcd2"
 							]
